@@ -1,10 +1,10 @@
-fPlayer
+fVideo
 =======
 
 Manage HTML5 Video with a fully customisible skin.
 --------------------------------------------------
 
-fPlayer does the hardwork so you dont have to, a lightweight framework that manages the tedium of 
+fVideo does the hardwork so you dont have to, a lightweight framework that manages the tedium of 
 skinning html5 videoplayer, managing file formats seek/buffer, fullscreen options, volume controls, annotations,
 captions open to feature requests :)
 and donations lols.
@@ -21,7 +21,7 @@ License is Creative Commons so feel free to use in your projects, commerical or 
 
 ## How to skin
 
-fPlayer default skin is neat and tidy and should fit in with any Design but feel free to skin it using the options below
+fVideo default skin is neat and tidy and should fit in with any Design but feel free to skin it using the options below
 or just edit the fVideo.css provided.
 
 - $('#selector').video({ 
