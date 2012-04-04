@@ -1,0 +1,100 @@
+<html>
+
+
+		<head>
+			<script src="js/zepto.js" type="text/javascript"> </script>
+			<script src="js/events.js" type="text/javascript"> </script>
+			<script src="js/fvideo.js" type="text/javascript"> </script>
+
+			<link rel="stylesheet" type="text/css" href="css/jfvideo.css"  />		
+		
+		<style type="text/css">
+			#jfVideo{
+				height: 360px;
+				width: 640px;
+				background-color: transparent;
+				padding: 15px;
+				border-radius: 15px;
+				margin-top:25px;
+				margin-bottom:25px;
+				box-shadow: 0px 0px 10px #aaa;
+			}
+			h1,h2,h3,h4,h5, p{
+				font-family:Georgia;
+				font-weight:normal;
+				color:#444;
+				width:640px;
+				text-align:center;
+
+			}
+
+			p{
+				color:#666;
+				text-align:center;
+				font-size:18px;
+			}
+			#container{
+				width:920px;
+				padding:20px;
+				height:auto;
+				display: block;
+			}
+			.center{
+				margin:0 auto;				
+			}
+			.title{
+				text-align:center;
+				margin-bottom:15px;
+			}
+
+			.clear{
+				clear:both;
+			}
+
+			.logo{
+				text-align:center;
+				margin-bottom:15px;
+			}	
+			.logoparent{
+				width: 200px;
+				background-color: #222;
+				border-radius: 20px;
+				padding: 25px;
+				box-shadow: 0px 0px 9px #000			}				
+			}
+		
+			body{
+ 
+			}
+			
+		</style>
+
+		</head>
+
+		<body>
+		<script>
+
+		setTimeout(function(){
+
+			$('#jfVideo').video(
+				{
+				 	src:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4",
+				 	track:"example.srt"
+				}
+			);
+								
+		}, 300)
+		
+			
+		</script>
+
+		<div class="center" id="jfVideo"> </div>
+
+ 
+
+
+
+		</body>
+
+
+</html>
