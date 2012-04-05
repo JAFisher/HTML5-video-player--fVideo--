@@ -1,12 +1,12 @@
 (function($)
-{	
+{
 	/*
-		fvideo was written and designed by jamie fisher a sexy nerd for swanify development team ^_^. 
+		fvideo was written and designed by jamie fisher a sexy nerd for swanify development team ^_^.
 		special props to zepto for being so uber.
 	*/
 
-	var video = 
-	{	
+	var video =
+	{
 		properties: {},
 		counter: 0,
 		interval: [],
@@ -43,7 +43,7 @@
 				default:
 				source = "subtitle"
 			}
-			return source;			
+			return source;
 		},
 		bindEvents:function(selector,c)
 		{
@@ -65,36 +65,36 @@
 			});
 
 			$('#fFullscreen_'+c).bind('click',function(){
-				var id = 'fVideoContainer_'+c;	
+				var id = 'fVideoContainer_'+c;
 							
 				video.requestFullScreen(id,c);
-			});				
+			});
 
 			$('#fPlayButton_'+c).bind('mousedown',function(){
-				$(this).addClass('down');	
+				$(this).addClass('down');
 			});
 
 
 			$('#fPlayButton_'+c).bind('mouseup',function(){
 				$(this).removeClass('down');
-				$(this).toggleClass('pause');	
-			});			
+				$(this).toggleClass('pause');
+			});
 			
 			$('#fVideoSeekScroller_'+c).bind('click',function(){
 				video.scrubTo(c);
-			});	
+			});
 			
 			$('.fAudiobar_'+c).bind('click',function(eventtarget){
 				var vol = $(eventtarget.target).attr('data-volume');
 				$('.fAudiobar_'+c).removeClass('active');
 				video.setAudio(c,vol);
-			});		
+			});
 			
-		//	$('fVideoPlayer_'+c).addEventListener("webkitEnterFullScreen",alert('elloworld'));					
+		//	$('fVideoPlayer_'+c).addEventListener("webkitEnterFullScreen",alert('elloworld'));
 
 		},
 		mouseMovement:function(c,selector)
-		{	
+		{
  			if(video.mouseActivity[c] == false || video.mouseActivity[c] == undefined)
 			{
 				video.mouseActivity[c] = true;
@@ -102,7 +102,7 @@
 				{
  
 					if(video.mouseActivity[c])
-					{	
+					{
 						video.hideTracker(selector, c);
 					}
 
@@ -110,7 +110,7 @@
  			}
 		},
 		showTracker:function(selector,c)
-		{	
+		{
 			$(selector).find('#fVideoSeekScroller_'+c).removeClass('none');
 			$(selector).find('#fVideoAudioScroller_'+c).removeClass('none');
 			$(selector).find('#fPlayButton_'+c).removeClass('none');
@@ -121,8 +121,8 @@
  			$(selector).find('#fVideoSeekScroller_'+c).addClass('none');
 			$(selector).find('#fVideoAudioScroller_'+c).addClass('none');
 			$(selector).find('#fPlayButton_'+c).addClass('none');
-			video.mouseActivity[c] = false;	
- 		},		
+			video.mouseActivity[c] = false;
+ 		},
 		togglePlay:function(id,c)
 		{
 			var videoPlayer = document.getElementById(id);
@@ -133,8 +133,8 @@
 			}
 			else
 			{
-				videoPlayer.play();	
-				$('#fPlayButton_'+c).addClass('pause');			
+				videoPlayer.play();
+				$('#fPlayButton_'+c).addClass('pause');
 			}
 		},
 		requestFullScreen:function(id,c)
@@ -144,7 +144,7 @@
 		},
 		currentTime:function(arr)
 		{
-			var c = arr[0].counter;	
+			var c = arr[0].counter;
  			var videoPlayer = document.getElementById('fVideoPlayer_'+c);
 			var tb = $('#fVideoSeekScroller_'+c).css('width');
 			tb = parseInt(tb);
@@ -164,7 +164,7 @@
 			var st = event.offsetX;
 			var tw = $('#fVideoSeekScroller_'+c).css('width');
 			tw = parseInt(tw);
-			var videoPlayer = document.getElementById('fVideoPlayer_'+c); 
+			var videoPlayer = document.getElementById('fVideoPlayer_'+c);
 			var dur = videoPlayer.duration;
 			var scrubPosition =  st / tw * 100;
 			var newtime = dur / 100 * scrubPosition;
@@ -174,7 +174,7 @@
 		{
 			$('.fAudiobar_'+c).each(function(index,element){
 				var data = $(element).attr('data-volume');
-				var videoPlayer = document.getElementById('fVideoPlayer_'+c); 
+				var videoPlayer = document.getElementById('fVideoPlayer_'+c);
 				videoPlayer.volume = vol;
 				if(vol >= data)
 				{
@@ -195,15 +195,15 @@
 	};
 
  	$.fn.video = function(obj)
-	{	
+	{
 		var o = video;
 		var c = o.counter;
 		var width = $(this).css('width');
 		var height = $(this).css('height');
 		var html  =  '<div id="fVideoContainer_'+c+'" class="fVideoContainer none">'+
 					 '<div id="fPlayButton_'+c+'" class="fPlayButton none"> </div>'+
-					 '<div id="fFullscreen_'+c+'" class="fFullscreen fFullscreen_'+c+'" data-fullscreen="false"> </div>'+					 
-					 '<div id="fVideoSeekScroller_'+c+'" class="fVideoSeekScroller none">'+ 
+					 '<div id="fFullscreen_'+c+'" class="fFullscreen fFullscreen_'+c+'" data-fullscreen="false"> </div>'+
+					 '<div id="fVideoSeekScroller_'+c+'" class="fVideoSeekScroller none">'+
 					 '<div id="fVideoProgress_'+c+'" class="fVideoProgress"> </div>'+
 					 '<div id="fVideoBuffered_'+c+'" class="fVideoBuffered"> </div> </div>'+
 					 '<div id="fVideoAudioScroller_'+c+'" class="fVideoAudioScroller none">'+
@@ -216,7 +216,7 @@
 					 '<div id="fAudiobar_'+c+'" class="fAudiobar fAudiobar_'+c+'" data-volume="0.7"> </div>'+
 					 '<div id="fAudiobar_'+c+'" class="fAudiobar fAudiobar_'+c+'" data-volume="0.8"> </div>'+
 					 '<div id="fAudiobar_'+c+'" class="fAudiobar fAudiobar_'+c+'" data-volume="0.9"> </div>'+
-					 '<div id="fAudiobar_'+c+'" class="fAudiobar fAudiobar_'+c+'" data-volume="1"> </div>'+	
+					 '<div id="fAudiobar_'+c+'" class="fAudiobar fAudiobar_'+c+'" data-volume="1"> </div>'+
 					 '</div>';
 
  			html  += '<video id="fVideoPlayer_'+c+'" class="fVideo" >';
@@ -233,7 +233,7 @@
 					else
 					{
 						html += ' <source src="'+o.source(obj.src)+'"'+
-						' type="'+o.type(obj.src)+'"/>';	
+						' type="'+o.type(obj.src)+'"/>';
 					}
 
 					if(obj.track !== undefined)
@@ -250,6 +250,6 @@
  		 video.checkAudio(c);
   		 video.properties[c] = {fullscreen: false,fadeOverride: false};
  		 video.counter++;
-	}	
+	}
 
 })(Zepto);
