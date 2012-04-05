@@ -15,7 +15,7 @@ License is Creative Commons so feel free to use in your projects, commerical or 
 
 ## How to use
 
-- $('#selector').video({ src: | track: | skin:{} | options:{}, events:{} });
+- $('#selector').video({ src:[] | track: | skin:{} | options:{}, events:{} });
 - src: is an Array so you can use multiple sources for fallback, $('#selector').video({src:["link.mp4","link.ogg"]}); 
   
 
