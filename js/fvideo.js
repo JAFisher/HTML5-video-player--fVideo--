@@ -95,12 +95,18 @@
 		},
 		mouseMovement:function(c,selector)
 		{
+			
+			$(selector).find('#fVideoSeekScroller_'+c).removeClass('none');
+			$(selector).find('#fVideoAudioScroller_'+c).removeClass('none');
+			$(selector).find('#fPlayButton_'+c).removeClass('none');
+
  			if(video.mouseActivity[c] == false || video.mouseActivity[c] == undefined)
 			{
 				video.mouseActivity[c] = true;
-				setTimeout(function()
+
+				clearTimeout(video.activityTimeout);
+				video.activityTimeout = setTimeout(function()
 				{
- 
 					if(video.mouseActivity[c])
 					{
 						video.hideTracker(selector, c);
@@ -111,9 +117,6 @@
 		},
 		showTracker:function(selector,c)
 		{
-			$(selector).find('#fVideoSeekScroller_'+c).removeClass('none');
-			$(selector).find('#fVideoAudioScroller_'+c).removeClass('none');
-			$(selector).find('#fPlayButton_'+c).removeClass('none');
 			video.mouseMovement(c,selector);
  		},
 		hideTracker:function(selector,c)
